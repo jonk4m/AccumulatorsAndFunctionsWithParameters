@@ -15,13 +15,13 @@ import math
 
 def main():
     """ Calls the   TEST   functions in this module. """
-    #run_test_sum_of_digits()
-    #run_test_digits_in_cube()
-    #run_test_digits_in_power()
+    run_test_sum_of_digits()
+    run_test_digits_in_cube()
+    run_test_digits_in_power()
     run_test_fancy_sums_of_digits()
 
     # ------------------------------------------------------------------
-    # TODO: 9. DO THIS LAST!
+    # Done: 9. DO THIS LAST!
     #    -- Uncomment the line of code below to run the main function in m3t_tester.py (do not make changes to it).
     #         It runs OUR tests on your code.
     #    -- Check to see whether all test cases indicate they
@@ -31,7 +31,7 @@ def main():
     #       ** Ask a TA or your professor for help in that case. **
     # ------------------------------------------------------------------
 
-    # m3t_tester.main()
+    m3t_tester.main()
 
 
 def run_test_sum_of_digits():
@@ -78,8 +78,8 @@ def run_test_sum_of_digits():
     print('Test 2 expected:', expected)
     print('       actual:  ', answer)
     # Test 3:
-    expected = -1
-    answer = sum_of_digits(-1)
+    expected = 1
+    answer = sum_of_digits(1)
     print('Test 3 expected:', expected)
     print('       actual:  ', answer)
     # Test 4:
@@ -313,9 +313,7 @@ def fancy_sums_of_digits(n):
     #    the    sum_of_digits    function that is DEFINED ABOVE.
     ####################################################################
     # ------------------------------------------------------------------
-    x = sum_of_digits(n**1000)
-    y = sum_of_digits(n**999)
-    return sum_of_digits(x**y)
+    return sum_of_digits(sum_of_digits(n**1000)**sum_of_digits(n**999))
 # ----------------------------------------------------------------------
 # Calls  main  to start the ball rolling.
 # This unusual form is necessary for the special testing we provided.

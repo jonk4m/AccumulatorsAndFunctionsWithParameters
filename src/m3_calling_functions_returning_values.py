@@ -17,8 +17,8 @@ def main():
     """ Calls the   TEST   functions in this module. """
     #run_test_sum_of_digits()
     #run_test_digits_in_cube()
-    run_test_digits_in_power()
-    #run_test_fancy_sums_of_digits()
+    #run_test_digits_in_power()
+    run_test_fancy_sums_of_digits()
 
     # ------------------------------------------------------------------
     # TODO: 9. DO THIS LAST!
@@ -271,11 +271,11 @@ def run_test_fancy_sums_of_digits():
     print('       actual:  ', answer)
     # Test 2:
     expected = 1
-    answer = fancy_sums_of_digits(1)
+    answer = fancy_sums_of_digits(10)
     print('Test 2 expected:', expected)
     print('       actual:  ', answer)
     # Test 3:
-    expected = 19
+    expected = 0
     answer = fancy_sums_of_digits(1)
     print('Test 3 expected:', expected)
     print('       actual:  ', answer)
@@ -306,14 +306,16 @@ def fancy_sums_of_digits(n):
             -- so this function returns 124309.
     """
     # ------------------------------------------------------------------
-    # TODO: 8. Implement and test this function.
+    # Done: 8. Implement and test this function.
     #
     ####################################################################
     # IMPORTANT: CALL, as many times as needed,
     #    the    sum_of_digits    function that is DEFINED ABOVE.
     ####################################################################
     # ------------------------------------------------------------------
-
+    #x = sum_of_digits(math.pow(n, 1000))
+    #y = sum_of_digits(math.pow(n, 999))
+    return sum_of_digits(math.pow(sum_of_digits(math.pow(n, 1000)), sum_of_digits(math.pow(n, 999))))
 # ----------------------------------------------------------------------
 # Calls  main  to start the ball rolling.
 # This unusual form is necessary for the special testing we provided.

@@ -2,18 +2,18 @@
 This module lets you experience the POWER of FUNCTIONS and PARAMETERS.
 
 Authors: David Mutchler, Valerie Galluzzi, Mark Hays, Amanda Stouder,
-         their colleagues and PUT_YOUR_NAME_HERE.
-"""  # TODO: 1. PUT YOUR NAME IN THE ABOVE LINE.
+         their colleagues and Jonathan Kinnard.
+"""  # Done: 1. PUT YOUR NAME IN THE ABOVE LINE.
 
 import rosegraphics as rg
-
+import math
 
 def main():
     """ Calls the   TEST   functions in this module. """
-    run_test_draw_circles()
+    #run_test_draw_circles()
     # Un-comment the next lines when you are ready to use them.
     # run_test_better_draw_circles()
-    # run_test_even_better_draw_circles()
+    run_test_even_better_draw_circles()
 
 
 # ----------------------------------------------------------------------
@@ -31,7 +31,7 @@ def run_test_draw_circles():
     """ Tests the   draw_circles   function. """
     # ------------------------------------------------------------------
     # Students:
-    #   Do NOT touch this function - it has no TODO in it.
+    #   Do NOT touch this function - it has no  in it.
     # ------------------------------------------------------------------
     print()
     print('--------------------------------------------------')
@@ -54,7 +54,6 @@ def draw_circles():
     #   Do NOT touch this function - it has no TO DO in it.
     # ------------------------------------------------------------------
     window = rg.RoseWindow(400, 400)
-
     center = rg.Point(200, 200)
     for k in range(21):
         circle = rg.Circle(center, 10 * k)
@@ -64,7 +63,7 @@ def draw_circles():
     window.close_on_mouse_click()
 
 # ----------------------------------------------------------------------
-# TODO: 2.
+# Done: 2.
 #   First, RUN this program.  You will see that draw_circles draws
 #   concentric circles whose radii vary by 10.
 #
@@ -93,9 +92,28 @@ def draw_circles():
 #   better_draw_circles  and  run_test_better_draw_circles.
 # ----------------------------------------------------------------------
 
+def better_draw_circles(n):
+    window = rg.RoseWindow(400, 400)
+    center = rg.Point(200, 200)
+    for k in range(21):
+        circle = rg.Circle(center, n * k)
+        circle.attach_to(window)
+        window.render(0.05)  # Pauses for 0.05 seconds after rendering.
+
+    window.close_on_mouse_click()
+
+def run_test_better_draw_circles():
+    print('Test for better_draw_circles')
+    print('This test opens three windows')
+    print('The first creates circles with radius of increments of 3')
+    print('The second creates circles with radius of increments of 10')
+    print('The third creates circles with radius of increments of sqrt(2)')
+    better_draw_circles(3)
+    better_draw_circles(10)
+    better_draw_circles(math.sqrt(2))
 
 # ----------------------------------------------------------------------
-# TODO: 3.
+# Done: 3.
 #   In the previous exercise, you made a MORE POWERFUL version
 #   of draw_circles by introducing a PARAMETER for the amount by
 #   which the radii of the concentric circles increase.
@@ -126,4 +144,29 @@ def draw_circles():
 # ----------------------------------------------------------------------
 # Calls  main  to start the ball rolling.
 # ----------------------------------------------------------------------
+
+
+def run_test_even_better_draw_circles():
+    print('Test for even_better_draw_circles')
+    print('This test opens three windows')
+    print('The first creates: radius 5, 10 circles, slowly, to the down by 5')
+    print('The first creates: radius 10, 30 circles, medium speed, to the down by 10')
+    print('The first creates: radius 3, 50 circles, fast speed, to the up by 3')
+    even_better_draw_circles(5, 10, 1, 5)
+    even_better_draw_circles(10, 30, 0.5, 10)
+    even_better_draw_circles(3, 50, 0.1, -3)
+
+
+def even_better_draw_circles(radius, numberofcircles, speed, shift):
+    window = rg.RoseWindow(400, 900)
+    constshift = shift
+    for k in range(numberofcircles+1):
+        center = rg.Point(200, 200+shift)
+        shift = shift + constshift
+        circle = rg.Circle(center, radius * k)
+        circle.attach_to(window)
+        window.render(speed)
+    window.close_on_mouse_click()
+
+
 main()

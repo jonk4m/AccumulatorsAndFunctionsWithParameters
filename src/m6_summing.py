@@ -10,14 +10,13 @@ import math
 
 def main():
     """ Calls the   TEST   functions in this module. """
-    run_test_sum_cosines()
-    #run_test_sum_square_roots()
+    run_test_sum_square_roots()
 
 
 def run_test_sum_cosines():
     """ Tests the   sum_cosines   function. """
     # ------------------------------------------------------------------
-    # TODO: 2. Implement this function.
+    # Done: 2. Implement this function.
     #   It TESTS the  sum_cosines  function defined below.
     #   Include at least **   3   ** tests.
     #
@@ -73,7 +72,7 @@ def sum_cosines(n):
 def run_test_sum_square_roots():
     """ Tests the   sum_square_roots   function. """
     # ------------------------------------------------------------------
-    # TODO: 4. Implement this function.
+    # Done: 4. Implement this function.
     #   It TESTS the  sum_square_roots  function defined below.
     #   Include at least **   3   ** tests.
     #
@@ -84,23 +83,44 @@ def run_test_sum_square_roots():
     print('--------------------------------------------------')
     print('Testing the   sum_square_roots   function:')
     print('--------------------------------------------------')
+    # Test 1:
+    expected = 11.854408
+    answer = sum_square_roots(5)
+    print('Test 1 expected:', expected)
+    print('       actual:  ', answer)
+    # Test 2:
+    expected = 3.41421
+    answer = sum_square_roots(2)
+    print('Test 2 expected:', expected)
+    print('       actual:  ', answer)
+    # Test 3:
+    expected = math.sqrt(2)
+    answer = sum_square_roots(1)
+    print('Test 3 expected:', expected)
+    print('       actual:  ', answer)
 
 
 def sum_square_roots(n):
     """
     What comes in:  A non-negative integer n.
     What goes out:  The sum of the square roots of the integers
-       2, 4, 6, 8, ... 2n    inclusive, for the given n.
+       2, 4, 6, 8, ... 2n inclusive, for the given n.
            So if n is 7, the last term of the sum is
            the square root of 14 (not 7).
-    Side effects:   None.
+    Side effects: None.
     Example:
       If n is 5, this function returns
          sqrt(2) + sqrt(4) + sqrt(6) + sqrt(8) + sqrt(10),
       which is about 11.854408.
     """
+    total = 0
+    evener = 1
+    for k in range(2*n+1):
+        if k % 2 == 0:
+            total = total + math.sqrt(k)
+    return total
     # ------------------------------------------------------------------
-    # TODO: 5. Implement and test this function.
+    # Done: 5. Implement and test this function.
     #   Note that you should write its TEST function first (above).
     #   That is called TEST-DRIVEN DEVELOPMENT (TDD).
     #
